@@ -1,0 +1,13 @@
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Application.deps.json
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Application.dll
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Application.pdb
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Domain.dll
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Persistence.dll
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Domain.pdb
+F:\Learn_Udemy\Reactivities\Application\bin\Debug\netstandard2.0\Persistence.pdb
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.csprojAssemblyReference.cache
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.AssemblyInfoInputs.cache
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.AssemblyInfo.cs
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.csproj.CopyComplete
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.dll
+F:\Learn_Udemy\Reactivities\Application\obj\Debug\netstandard2.0\Application.pdb

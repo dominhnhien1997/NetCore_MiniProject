@@ -1,0 +1,8 @@
+F:\Learn_Udemy\Reactivities\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+F:\Learn_Udemy\Reactivities\Domain\bin\Debug\netstandard2.0\Domain.dll
+F:\Learn_Udemy\Reactivities\Domain\bin\Debug\netstandard2.0\Domain.pdb
+F:\Learn_Udemy\Reactivities\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
+F:\Learn_Udemy\Reactivities\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+F:\Learn_Udemy\Reactivities\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+F:\Learn_Udemy\Reactivities\Domain\obj\Debug\netstandard2.0\Domain.dll
+F:\Learn_Udemy\Reactivities\Domain\obj\Debug\netstandard2.0\Domain.pdb
