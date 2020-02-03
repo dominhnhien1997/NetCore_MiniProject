@@ -30,7 +30,7 @@ namespace Application.Holiday
             {
                 var test = await context.TestHolidays.FindAsync(request.Id);
                 if (test == null)
-                    throw new Exception("Cannot  not find student");
+                    throw new Exception("Cannot  not find holiday");
                 context.Remove(test);
                 var success = await context.SaveChangesAsync() > 0;
                 if (success) return Unit.Value;

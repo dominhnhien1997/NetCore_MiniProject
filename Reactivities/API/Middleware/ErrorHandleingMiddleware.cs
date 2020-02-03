@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace API.Middleware
@@ -30,17 +32,31 @@ namespace API.Middleware
             }
         }
 
-        private Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<ErrorHandleingMiddleware> logger)
+        private async Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<ErrorHandleingMiddleware> logger)
         {
             object errors = null;
             switch (ex)
             {
                 case RestException re:
                     _logger.LogError(ex, "REST ERROR");
-                    errors = re.errors;
+                    errors = re.Message;
+                    context.Response.StatusCode = (int)re._httpStatusCode;
                     break;
-                default:
+                case Exception e:
+
+                    _logger.LogError(ex, "Server ERROR");
+                    errors = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
+            }
+            context.Response.ContentType = "application/json";
+            if (errors != null)
+            {
+                var result = JsonSerializer.Serialize(new
+                {
+                    errors
+                });
+                await context.Response.WriteAsync(result);
             }
         }
     }
