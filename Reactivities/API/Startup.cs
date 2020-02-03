@@ -22,6 +22,7 @@ using Infratructure.Serurity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using FluentValidation.AspNetCore;
 
 namespace API
 {
@@ -43,8 +44,11 @@ namespace API
             );
             services.AddMediatR(typeof(List.Handler).Assembly);
 
-            services.AddControllers();
-
+            services.AddControllers()
+                    .AddFluentValidation(cfg =>
+                    {
+                        cfg.RegisterValidatorsFromAssemblyContaining<Create>();
+                    });
             var builder = services.AddIdentityCore<AppUser>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             identityBuilder.AddEntityFrameworkStores<DataContext>();

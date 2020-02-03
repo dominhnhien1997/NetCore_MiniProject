@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using FluentValidation;
 
 namespace Application.Holiday
 {
@@ -14,9 +15,9 @@ namespace Application.Holiday
     {
         public class Command : IRequest
         {
-            [Required]
+
             public string Name { get; set; }
-            [Required]
+
             public string Address { get; set; }
 
             public string DisplayName { get; set; }
@@ -24,6 +25,14 @@ namespace Application.Holiday
             public string Address1 { get; set; }
         }
 
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x => x.Name).NotEmpty().WithMessage("Khong duoc de trong truong ten null");
+                RuleFor(x => x.Address).NotEmpty().WithMessage("Khong duoc de trong truong dia chi null");
+            }
+        }
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext context;
