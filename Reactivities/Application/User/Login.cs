@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using Domain;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Rest;
+
 using Persistence;
 
 namespace Application.User
@@ -48,7 +49,7 @@ namespace Application.User
                 var userInfo = await userManger.FindByEmailAsync(request.Email);
                 if (userInfo == null)
                 {
-                    throw new RestException("Email does not exist");
+                    throw new Exception("Email does not exist");
                 }
                 var result = await siginManger.CheckPasswordSignInAsync(userInfo, request.Password, false);
                 if (result.Succeeded)
@@ -62,7 +63,7 @@ namespace Application.User
                         Image = "http://baoventd.org/fileman/Uploads/Images/2019-01/mai-phuong-thuy-thua-nhan-day-la-nguoi-dan-ong-khien-co-me-met-nhat-1.jpg"
                     };
                 }
-                throw new RestException("Wrong password");
+                throw new Exception("Wrong password");
             }
         }
     }

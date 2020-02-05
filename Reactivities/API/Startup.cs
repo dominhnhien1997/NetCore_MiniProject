@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FluentValidation.AspNetCore;
+using API.Middleware;
 
 namespace API
 {
@@ -76,11 +77,10 @@ namespace API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<ErrorHandleingMiddleware>();
             app.UseHttpsRedirection();
-
             app.UseRouting();
             app.UseCors("CorsPolicy");
             app.UseAuthentication();

@@ -5,7 +5,6 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Rest;
 using Persistence;
 using System;
 using System.Collections.Generic;
@@ -56,12 +55,12 @@ namespace Application.User
             {
                 if (await context.Users.Where(x => x.Email == request.Email).AnyAsync())
                 {
-                    throw new RestException("Email alerady exits");
+                    throw new Exception("Email alerady exits");
                 }
 
                 if (await context.Users.Where(x => x.UserName == request.Email).AnyAsync())
                 {
-                    throw new RestException("Username alerady exits");
+                    throw new Exception("Username alerady exits");
                 }
                 var user = new AppUser
                 {
