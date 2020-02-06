@@ -1,7 +1,9 @@
-﻿using MediatR;
+﻿using Application.Errors;
+using MediatR;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,14 +25,11 @@ namespace Application.Holiday
             {
                 this.context = context;
             }
-
-
-
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 var test = await context.TestHolidays.FindAsync(request.Id);
                 if (test == null)
-                    throw new Exception("Cannot  not find student");
+                    throw new RestException(HttpStatusCode.NotFound, "Cannot  not find holiday");
                 context.Remove(test);
                 var success = await context.SaveChangesAsync() > 0;
                 if (success) return Unit.Value;

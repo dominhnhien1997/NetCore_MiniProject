@@ -22,6 +22,8 @@ using Infratructure.Serurity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using FluentValidation.AspNetCore;
+using API.Middleware;
 
 namespace API
 {
@@ -43,8 +45,11 @@ namespace API
             );
             services.AddMediatR(typeof(List.Handler).Assembly);
 
-            services.AddControllers();
-
+            services.AddControllers()
+                    .AddFluentValidation(cfg =>
+                    {
+                        cfg.RegisterValidatorsFromAssemblyContaining<Create>();
+                    });
             var builder = services.AddIdentityCore<AppUser>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             identityBuilder.AddEntityFrameworkStores<DataContext>();
@@ -72,11 +77,10 @@ namespace API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<ErrorHandleingMiddleware>();
             app.UseHttpsRedirection();
-
             app.UseRouting();
             app.UseCors("CorsPolicy");
             app.UseAuthentication();

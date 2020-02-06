@@ -1,7 +1,10 @@
 ﻿using System;
+using System.IO;
 using Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace Persistence
 {
@@ -20,6 +23,7 @@ namespace Persistence
 
         public DbSet<RunBuild> RunBuilds { get; set; }
         public DbSet<Wending> Wendings { get; set; }
+        public DbSet<Test> Tests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,4 +36,17 @@ namespace Persistence
                  );
         }
     }
+
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<DataContext>
+    {
+        public DataContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../API/appsettings.json").Build();
+            var builder = new DbContextOptionsBuilder<DataContext>();
+            var connectionString = configuration.GetConnectionString("ConnectionSQLServer");
+            builder.UseSqlServer(connectionString);
+            return new DataContext(builder.Options);
+        }
+    }
+
 }

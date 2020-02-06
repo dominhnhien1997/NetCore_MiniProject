@@ -1,0 +1,13 @@
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Persistence.deps.json
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Persistence.dll
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Persistence.pdb
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Domain.dll
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Domain.pdb
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.csprojAssemblyReference.cache
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.AssemblyInfoInputs.cache
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.AssemblyInfo.cs
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.csproj.CopyComplete
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.dll
+F:\Learn_Udemy_Git\Reactivities\Persistence\obj\Debug\netcoreapp3.0\Persistence.pdb
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Persistence.runtimeconfig.json
+F:\Learn_Udemy_Git\Reactivities\Persistence\bin\Debug\netcoreapp3.0\Persistence.runtimeconfig.dev.json
