@@ -19,7 +19,7 @@ namespace API.Controllers
         public async Task<ActionResult<List<Student>>> Get(CancellationToken ct)
         {
             return await Mediator.Send(new List.Query());
-        }
+        }                                                    
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> Details(Guid id)

@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Application.Activitíe;
+using Application.Activitie;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ActivityController : ControllerBase
+    public class ActivityController : BaseController
     {
+       [HttpPost]
+       public async Task<ActionResult<Unit>> Create([FromBody]Create.Command command)
+       {
+            return await Mediator.Send(command);
+       }
 
-        private readonly IMediator mediator;
-        public ActivityController(IMediator mediator)
-        {
-            this.mediator = mediator;
-        }
         //[HttpGet]
-        //public async Task<List<Student>> List()
+        //public async Task<ActionResult<List<Student>>> Get(CancellationToken ct)
         //{
-        //    return await mediator.Send(new List.Query());
+        //    return await Mediator.Send(new List.Query());
         //}
     }
 }

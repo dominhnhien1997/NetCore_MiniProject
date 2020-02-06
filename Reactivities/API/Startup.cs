@@ -41,7 +41,7 @@ namespace API
         {
             services.AddDbContext<DataContext>
             (
-                item => item.UseSqlServer(Configuration.GetConnectionString("ConnectionSQLServer"))
+                item => item.UseSqlServer(Configuration.GetConnectionString("ConnectionSQLServerMyCompany"))
             );
             services.AddMediatR(typeof(List.Handler).Assembly);
 
