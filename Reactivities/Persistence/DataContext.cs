@@ -55,7 +55,7 @@ namespace Persistence
         {
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../API/appsettings.json").Build();
             var builder = new DbContextOptionsBuilder<DataContext>();
-            var connectionString = configuration.GetConnectionString("ConnectionSQLServerMyCompany");
+            var connectionString = configuration.GetConnectionString("ConnectionSQLServer");
             builder.UseSqlServer(connectionString);
             return new DataContext(builder.Options);
         }

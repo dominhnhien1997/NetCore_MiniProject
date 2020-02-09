@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using AutoMapper;
+using Domain;
 using MediatR;
 using Persistence;
 using System;
@@ -19,9 +20,11 @@ namespace Application.Holiday
         public class Handler : IRequestHandler<Query, TestHoliday>
         {
             private readonly DataContext dataContext;
-            public Handler(DataContext dataContext)
+            private readonly IMapper mapper;
+            public Handler(DataContext dataContext, IMapper mapper)
             {
                 this.dataContext = dataContext;
+                this.mapper = mapper;
             }
             public async Task<TestHoliday> Handle(Query request, CancellationToken cancellationToken)
             {

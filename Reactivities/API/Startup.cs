@@ -24,6 +24,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FluentValidation.AspNetCore;
 using API.Middleware;
+using AutoMapper;
 
 namespace API
 {
@@ -39,12 +40,13 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>
-            (
-                item => item.UseSqlServer(Configuration.GetConnectionString("ConnectionSQLServerMyCompany"))
-            );
+            services.AddDbContext<DataContext>(item =>
+            {
+                item.UseLazyLoadingProxies();
+                item.UseSqlServer(Configuration.GetConnectionString("ConnectionSQLServer"));
+            });
             services.AddMediatR(typeof(List.Handler).Assembly);
-
+            services.AddAutoMapper(typeof(List.Handler));
             services.AddControllers()
                     .AddFluentValidation(cfg =>
                     {
